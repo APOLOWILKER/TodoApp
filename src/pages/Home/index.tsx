@@ -1,3 +1,4 @@
+import { InputTask } from "@/components/input";
 import {
   Inter_400Regular,
   Inter_500Medium,
@@ -27,6 +28,8 @@ export function Home() {
           source={require("../../assets/Logo.png")}
         />
       </View>
+
+      <InputTask />
 
      
     </View>
