@@ -1,28 +1,35 @@
 
+import { theme } from "@/theme";
+import { Ionicons } from '@expo/vector-icons';
+import React from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import { styles } from "./style";
 
 interface TaskProps {
-  task: string,
-  onRemove: () => void,
-  onComplete: () => void
+  taskText: string,
+  onRemove?: () => void,
+  onComplete?: () => void
 }
 
-export function Task({task, onRemove, onComplete}: TaskProps) {
+export function Task({taskText, onRemove, onComplete}: TaskProps) {
   return(
     <View style={styles.container}>
-      <TouchableOpacity style={styles.button} onPress={onComplete} >
-          <Text style={styles.buttonText}>
-            -
-          </Text>
-      </TouchableOpacity>
+      
+         <Ionicons 
+          name="checkmark-sharp"
+          size={9}
+          color={theme.colors.gray_100}
+         />
+
       <Text style={styles.name}>
-        {task}
+        {taskText}
       </Text>
-      <TouchableOpacity style={styles.button} onPress={onRemove} >
-          <Text style={styles.buttonText}>
-            -
-          </Text>
+      <TouchableOpacity style={styles.trashButton} onPress={onRemove} >
+         <Ionicons
+         name="trash-outline"
+         size={14}
+         color={theme.colors.gray_300}
+       />
       </TouchableOpacity>
     </View>
   )

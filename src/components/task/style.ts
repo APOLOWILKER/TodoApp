@@ -1,13 +1,18 @@
+import { theme } from "@/theme";
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   container: {
-    width: '100%',
-    backgroundColor: '#1f1e25',
-    borderRadius: 5,
+    backgroundColor: theme.colors.gray_500,
+    borderColor: theme.colors.gray_400,
+    borderWidth: 1,
+    borderRadius: 8,
+    padding: 12,
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 10
+    justifyContent: 'space-between',
+    gap: 8,
+    marginBottom: 8,
   },
   name: {
     flex: 1,

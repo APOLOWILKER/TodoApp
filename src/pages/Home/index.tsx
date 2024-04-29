@@ -1,11 +1,13 @@
+import { EmptyTask } from "@/components/emptyTask";
 import { InputTask } from "@/components/input";
+import { Task } from "@/components/task";
 import {
   Inter_400Regular,
   Inter_500Medium,
   Inter_700Bold,
   useFonts,
 } from '@expo-google-fonts/inter';
-import { Image, Text, View } from "react-native";
+import { FlatList, Image, Text, View } from "react-native";
 import { styles } from "./styles";
 
 
@@ -51,9 +53,26 @@ export function Home() {
 
         </View>
 
-
+        <FlatList 
+          data={[]}
+          keyExtractor={item => item}
+          renderItem={({item}) => (
+            <Task 
+              key={item}
+              taskText={item}
+            />
+          )}
+          showsHorizontalScrollIndicator={false}
+          ListEmptyComponent={ () => (
+            <EmptyTask />
+          )}
+        />
 
       </View>
+      <Task
+        key="testanto"
+        taskText="testando"
+      />
 
      
     </View>
