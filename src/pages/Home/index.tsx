@@ -7,11 +7,23 @@ import {
   Inter_700Bold,
   useFonts,
 } from '@expo-google-fonts/inter';
+import { useState } from "react";
 import { FlatList, Image, Text, View } from "react-native";
+import uuid from "react-native-uuid";
 import { styles } from "./styles";
 
 
+interface TaskProps {
+  id: string,
+  description: string,
+  done: boolean,
+}
+
 export function Home() {
+  // estado para criar tarefa 
+  const [taskDescription, setTaskDescription] = useState("");
+  // estado para exibir e armazenar tarefas
+  const [taskList, setTaskList] = useState<TaskProps[]>([]);
 
   let [fontsLoaded, fontError] = useFonts({
     Inter_400Regular,
@@ -23,6 +35,18 @@ export function Home() {
     return null
   }
 
+  function handleTaskCreated() {
+    console.log('Participant added')
+    const newTask = {
+      id: String(uuid.v4()),
+      description: taskDescription,
+      done: false,
+    }
+
+    setTaskList(prevState => [...prevState, newTask])
+    setTaskDescription("")
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>
@@ -31,7 +55,12 @@ export function Home() {
         />
       </View>
 
-      <InputTask />
+      <InputTask
+        placeholder="Adicione uma nova tarefa"
+        onChangeText={setTaskDescription}
+        value={taskDescription}
+        onPress={handleTaskCreated}
+      />
 
       <View style={styles.tasksGroup}>
         <View style={styles.containerFeedBackTask}>
@@ -52,27 +81,22 @@ export function Home() {
         </View>
 
         <FlatList 
-          data={[]}
-          keyExtractor={item => item}
+          data={taskList}
+          keyExtractor={(item) => item.id}
           renderItem={({item}) => (
             <Task 
-              key={item}
-              taskText={item}
+              key={item.id}
+              taskText={item.description}
+              // done={item.done}
+              // onRemove={() => removeTask(item.id)}
+              // onComplete={() => completeTask(item.id)}
             />
           )}
           showsHorizontalScrollIndicator={false}
-          ListEmptyComponent={ () => (
-            <EmptyTask />
-          )}
+          ListEmptyComponent={<EmptyTask />}
         />
 
       </View>
-      <Task
-        key="testanto"
-        taskText="testando"
-      />
-
-     
     </View>
   )
 }

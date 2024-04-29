@@ -3,17 +3,26 @@ import { Ionicons } from "@expo/vector-icons";
 import { TextInput, TouchableOpacity, View } from "react-native";
 import { styles } from "./styles";
 
+interface InputTaskProps {
+  onChangeText: (text: string) => void,
+  value: string,
+  placeholder: string,
+  onPress: () => void,
+}
 
-export function InputTask() {
+
+export function InputTask({onChangeText, value, placeholder, onPress}: InputTaskProps) {
   return(
     <View style={styles.containerInput}>
       <TextInput
         style={styles.inputText} 
-        placeholder="Adicione uma nova tarefa"
+        placeholder={placeholder}
         placeholderTextColor={theme.colors.gray_200}
+        onChangeText={(text) => onChangeText(text)}
+        value={value}
       />
 
-      <TouchableOpacity style={styles.buttonTask}>
+      <TouchableOpacity style={styles.buttonTask} onPress={onPress}>
         <Ionicons 
           name="add-circle-outline"
           size={24}
