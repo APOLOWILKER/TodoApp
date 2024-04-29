@@ -33,8 +33,6 @@ export function Home() {
 
       <InputTask />
 
-    
-
       <View style={styles.tasksGroup}>
         <View style={styles.containerFeedBackTask}>
           <View style={styles.containerStatusBlock}>

@@ -14,13 +14,11 @@ interface TaskProps {
 export function Task({taskText, onRemove, onComplete}: TaskProps) {
   return(
     <View style={styles.container}>
-      
          <Ionicons 
           name="checkmark-sharp"
           size={9}
           color={theme.colors.gray_100}
          />
-
       <Text style={styles.name}>
         {taskText}
       </Text>
