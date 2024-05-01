@@ -88,7 +88,7 @@ export function Home() {
           <View style={styles.containerStatusBlock}>
             <Text style={styles.taskStatusText}>Concluídas</Text>
             <View style={styles.taskStatusBlock}>
-              <Text style={styles.taskStatusValueNumber}>02</Text>
+              <Text style={styles.taskStatusValueNumber}>{taskList.filter((task) => task.done).length}</Text>
             </View>
           </View>
 
