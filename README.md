@@ -23,7 +23,7 @@
 <br>
 
 <p align="center">
-  <img alt="ToDo App Screen" src="./.github/capa_project.gif" width="30%">
+  <img alt="ToDo App Screen" src="./.github/capa_project_todo.gif" width="50%">
 </p>
 
 
