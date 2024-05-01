@@ -13,7 +13,7 @@ import uuid from "react-native-uuid";
 import { styles } from "./styles";
 
 
-interface TaskProps {
+export interface TaskProps {
   id: string,
   description: string,
   done: boolean,
@@ -33,6 +33,12 @@ export function Home() {
 
   if (!fontsLoaded && !fontError) {
     return null
+  }
+
+  function countTasksCompleted(taskList: TaskProps[]){
+    console.log(taskList);
+    
+    return taskList.filter((task) => task.done).length
   }
 
   function handleTaskCreated() {
@@ -88,7 +94,7 @@ export function Home() {
           <View style={styles.containerStatusBlock}>
             <Text style={styles.taskStatusText}>Concluídas</Text>
             <View style={styles.taskStatusBlock}>
-              <Text style={styles.taskStatusValueNumber}>{taskList.filter((task) => task.done).length}</Text>
+              <Text style={styles.taskStatusValueNumber}>{countTasksCompleted(taskList)}</Text>
             </View>
           </View>
 
