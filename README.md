@@ -63,4 +63,4 @@ npx expo start
 ---
 
 ## Author
-Made with ♥ by Apolo Wilker 🚀 <a href="https://github.com/APOLOWILKER" target="_blank">Apolo Wilker</>
+Made with ♥ by Apolo Wilker 🚀 <a href="https://github.com/APOLOWILKER" target="_blank">Apolo Wilker</a>
