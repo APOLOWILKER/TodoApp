@@ -9,7 +9,7 @@ import {
   useFonts,
 } from '@expo-google-fonts/inter';
 import { useState } from "react";
-import { FlatList, Image, Text, View } from "react-native";
+import { Alert, FlatList, Image, Text, View } from "react-native";
 import uuid from "react-native-uuid";
 import { styles } from "./styles";
 
@@ -42,6 +42,21 @@ export function Home() {
       description: capitalizeTask(taskDescription),
       done: false,
     }
+
+    if (taskDescription.trim() === "") {
+      return Alert.alert("Tarefa vazia", "Você não pode criar uma tarefa vazia")
+    }
+
+    if (taskList.find((task) => task.description === newTask.description && task.done === false)) {
+      return Alert.alert("Tarefa existente", "Ja existe na lista uma tarefa igual")
+    }
+    
+
+
+    if(taskList.find((task) => task.description === newTask.description && task.done === true)) {
+      return Alert.alert("Tarefa Completa", "Você já realizou essa tarefa")
+    }
+    
 
     setTaskList(prevState => [...prevState, newTask])
     setTaskDescription("")
