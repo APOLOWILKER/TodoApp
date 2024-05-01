@@ -22,6 +22,11 @@
 
 <br>
 
+<p align="center">
+  <img alt="ToDo App Screen" src="./.github/capa_project.gif" width="30%">
+</p>
+
+
 ## 🧰 Technologies
 Here are the technologies used in this project
 
