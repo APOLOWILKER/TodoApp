@@ -1,6 +1,7 @@
 import { EmptyTask } from "@/components/emptyTask";
 import { InputTask } from "@/components/input";
 import { Task } from "@/components/task";
+import { capitalizeTask, countTasksCompleted } from "@/utils";
 import {
   Inter_400Regular,
   Inter_500Medium,
@@ -35,16 +36,10 @@ export function Home() {
     return null
   }
 
-  function countTasksCompleted(taskList: TaskProps[]){
-    console.log(taskList);
-    
-    return taskList.filter((task) => task.done).length
-  }
-
   function handleTaskCreated() {
     const newTask = {
       id: String(uuid.v4()),
-      description: taskDescription,
+      description: capitalizeTask(taskDescription),
       done: false,
     }
 

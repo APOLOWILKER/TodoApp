@@ -5,6 +5,6 @@ export function countTasksCompleted(taskList: TaskProps[]){
 }
 
 
-// function capitalizeTask(){
-//   return task.charAt(0).toUpperCase() + task.slice(1);
-// }
+export function capitalizeTask(task: string){
+  return task.charAt(0).toUpperCase() + task.slice(1);
+}
