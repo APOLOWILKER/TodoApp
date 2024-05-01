@@ -81,7 +81,7 @@ export function Home() {
           <View style={styles.containerStatusBlock}>
             <Text style={styles.taskStatusText}>Criadas </Text>
             <View style={styles.taskStatusBlock}>
-              <Text style={styles.taskStatusValueNumber}>05</Text>
+              <Text style={styles.taskStatusValueNumber}>{taskList.length}</Text>
             </View>
           </View>
           
