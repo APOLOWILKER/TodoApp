@@ -27,6 +27,25 @@
 </p>
 
 
+## functionalities
+
+- Create a new task
+- complete tasks
+- delete tasks
+
+***Validations***
+- cannot create an empty task
+- cannot create the same task
+- You cannot create a task if you have already completed it
+
+***Future Feteares***
+- New Page for tasks completeds
+- New Page for tasks Created
+- Implement modal for add date and other functionality for tasks created
+- add tests for application
+
+
+
 ## 🧰 Technologies
 Here are the technologies used in this project
 
