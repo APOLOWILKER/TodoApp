@@ -8,31 +8,38 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 8,
     padding: 12,
+    height: 64,
+    width: '100%',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     gap: 8,
     marginBottom: 8,
   },
-  name: {
+  taskDescription: {
+    color: theme.colors.gray_100,
+    textAlign: 'left',
+    fontSize: theme.fonts.size.body.sm,
+    fontFamily: theme.fonts.family.regular,
     flex: 1,
-    fontSize: 16,
-    marginLeft: 16,
-    color: '#FFF'
+  },
+  taskDone: {
+    color: theme.colors.gray_300,
+    textDecorationLine: 'line-through',
+  },
+  checkMenu: {
+    width: 24,
+    height: 24,
+    margin: 3,
+    borderWidth: 2,
+    borderRadius: 999,
+    borderColor: theme.colors.blue,
+  },
+  checked: {
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: theme.colors.purple_dark,
+    borderColor: theme.colors.purple_dark
+  },
 
-  },
-  button: {
-    width: 56,
-    height: 56,
-    borderRadius: 5,
-    backgroundColor: '#E23C44',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  buttonText: {
-    color: '#FFF',
-    fontSize: 24,
-    fontWeight: 'bold',
-    textAlign: 'center'
-  }
 });

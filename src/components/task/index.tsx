@@ -7,25 +7,33 @@ import { styles } from "./style";
 
 interface TaskProps {
   taskText: string,
+  done: boolean,
   onRemove?: () => void,
   onComplete?: () => void
 }
 
-export function Task({taskText, onRemove, onComplete}: TaskProps) {
+export function Task({taskText, done = false, onRemove, onComplete}: TaskProps) {
   return(
     <View style={styles.container}>
-         <Ionicons 
-          name="checkmark-sharp"
-          size={9}
-          color={theme.colors.gray_100}
-         />
-      <Text style={styles.name}>
+      <TouchableOpacity onPress={onComplete}>
+        <View style={[styles.checkMenu, done && styles.checked]}>
+          {done && (
+            <Ionicons 
+            name="checkmark-sharp"
+            size={24}
+            color={theme.colors.gray_100}
+            />
+          )}
+        </View>
+      </TouchableOpacity>
+      
+      <Text style={[styles.taskDescription, done && styles.taskDone]}>
         {taskText}
       </Text>
-      <TouchableOpacity style={styles.trashButton} onPress={onRemove} >
+      <TouchableOpacity onPress={onRemove} >
          <Ionicons
          name="trash-outline"
-         size={14}
+         size={24}
          color={theme.colors.gray_300}
        />
       </TouchableOpacity>

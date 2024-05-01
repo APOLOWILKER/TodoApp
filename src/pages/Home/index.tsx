@@ -36,7 +36,6 @@ export function Home() {
   }
 
   function handleTaskCreated() {
-    console.log('Participant added')
     const newTask = {
       id: String(uuid.v4()),
       description: taskDescription,
@@ -46,6 +45,21 @@ export function Home() {
     setTaskList(prevState => [...prevState, newTask])
     setTaskDescription("")
   }
+
+  function handleTaskRemoved(id: string) {
+    setTaskList(prevState => prevState.filter(task => task.id!== id))
+  }
+
+  function handleTaskCompleted(id: string) {
+    const newTaskList = taskList.map((task)=> {
+      return {
+        ...task,
+        done: task.id === id ? !task.done : task.done,
+      }
+    })
+    setTaskList(newTaskList)
+  }
+
 
   return (
     <View style={styles.container}>
@@ -87,9 +101,9 @@ export function Home() {
             <Task 
               key={item.id}
               taskText={item.description}
-              // done={item.done}
-              // onRemove={() => removeTask(item.id)}
-              // onComplete={() => completeTask(item.id)}
+              done={item.done}
+              onRemove={() => handleTaskRemoved(item.id)}
+              onComplete={() => handleTaskCompleted(item.id)}
             />
           )}
           showsHorizontalScrollIndicator={false}
